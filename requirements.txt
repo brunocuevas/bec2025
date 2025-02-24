@@ -1,1 +1,3 @@
-rdkit==2024.9.5
+rdkit
+numpy
+pandas
