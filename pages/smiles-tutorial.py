@@ -16,7 +16,9 @@ if 'targets' not in st.session_state:
         ("Cyclo Hexane", "C1CCCCC1"),
         ("Benzene", "c1ccccc1"),
         ("Napthalene", "C1=CC=C2C=CC=CC2=C1"),
-        ("Caffeine", "CN1C=NC2=C1C(=O)N(C(=O)N2C)C")
+        ("Caffeine", "CN1C=NC2=C1C(=O)N(C(=O)N2C)C"),
+        ("Indole-3-acetic acid", "C1=CC=C2C(=C1)C(=CN2)CC(=O)O"),
+        ("Capsaicin", "CC(C)C=CCCCCC(=O)NCC1=CC(=C(C=C1)O)OC")
     ]
 
 if 'current_molecule' not in st.session_state:
@@ -42,4 +44,11 @@ if st.button("submit"):
             st.rerun()
         except IndexError:
             st.info("congrats!!")
-        
+            
+if st.button("next"):
+    time.sleep(3)
+    try:
+        st.session_state["current_molecule"] = st.session_state['targets'].pop(0)
+        st.rerun()
+    except IndexError:
+        st.info("congrats!!")
